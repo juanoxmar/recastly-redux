@@ -1,12 +1,11 @@
 import React from 'react';
 import VideoListContainer from '../containers/VideoListContainer.js';
 import VideoPlayerContainer from '../containers/VideoPlayerContainer.js';
-import SearchContainer from '../containers/SearchContainer.js'
+import SearchContainer from '../containers/SearchContainer.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       videos: [],
       currentVideo: null
@@ -20,7 +19,7 @@ class App extends React.Component {
   }
 
   handleVideoListEntryTitleClick(video) {
-    this.setState({currentVideo: video});
+    this.setState({ currentVideo: video });
   }
 
   getYouTubeVideos(query) {
@@ -28,7 +27,6 @@ class App extends React.Component {
       key: this.props.API_KEY,
       query: query
     };
-
     this.props.searchYouTube(options, (videos) =>
       this.setState({
         videos: videos,
@@ -37,6 +35,7 @@ class App extends React.Component {
     );
   }
 
+
   //TODO: swap out the React components below for the container components
   //  you wrote in the 'containers' directory.
   render() {
@@ -44,20 +43,14 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 col-md-offset-3">
-            {/* <Search getYouTubeVideos={this.getYouTubeVideos}/> */}
             <SearchContainer />
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            {/* <VideoPlayer video={this.state.currentVideo}/> */}
             <VideoPlayerContainer />
           </div>
           <div className="col-md-5">
-            {/* <VideoList
-              handleVideoListEntryTitleClick={this.handleVideoListEntryTitleClick.bind(this)}
-              videos={this.state.videos}
-            /> */}
             <VideoListContainer />
           </div>
         </div>

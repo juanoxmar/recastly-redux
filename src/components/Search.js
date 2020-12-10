@@ -11,8 +11,7 @@ class Search extends React.Component {
   }
 
   handleInputChange(e) {
-    // this.props.dispatch(e.target.value);
-    this.props.getYouTubeVideos(e.target.value);
+    props.getYouTubeVideos(e.target.value);
     this.setState({
       value: e.target.value
     });
