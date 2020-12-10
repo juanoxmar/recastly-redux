@@ -6,7 +6,7 @@ var mapProps = state => ({ videos: state.videoList });
 
 var mapDispatch = dispatch => {
   return {
-    handleVideoListEntryTitleClick: () => dispatch(changeVideoList)
+    handleVideoListEntryTitleClick: (video) => dispatch(changeVideoList(video))
   };
 };
 var connected = connect(mapProps, mapDispatch);
