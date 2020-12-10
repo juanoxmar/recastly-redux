@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-var VideoPlayer = ({video}) => (
+var VideoPlayer = ({ video }) => (
   !video
     ? <div className="video-player">Please wait...</div>
     : <div className="video-player">

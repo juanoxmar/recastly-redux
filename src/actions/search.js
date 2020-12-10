@@ -4,9 +4,16 @@ import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
-var handleVideoSearch = (q) => {
- 
-  //TODO:  Write an asynchronous action to handle a video search!
-};
+
+var handleVideoSearch = q => dispatch => {
+  const options = {
+    key: YOUTUBE_API_KEY,
+    query: q
+  };
+  searchYouTube(options, (data) => {
+    dispatch(changeVideoList(data));
+    dispatch(changeVideo(data[0]));
+  });
+}
 
 export default handleVideoSearch;
